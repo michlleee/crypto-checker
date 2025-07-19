@@ -28,7 +28,8 @@ th,
 td {
     margin: 20px auto;
     border-collapse: collapse;
-    border: 1px solid rgb(33, 40, 83);
+    border: 1px solid #bdbdbd;
+    background-color: #162233;
     color: gainsboro;
     width: 25vw;
     height: 5vh;
