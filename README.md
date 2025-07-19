@@ -1,7 +1,6 @@
 # CryptoChecker
 
-CryptoChecker is a Node.js web application that displays the latest market data of cryptocurrencies using the CoinMarketCap (CMC) API.  
-The app allows users to select from the top 50 cryptocurrencies and view their price, market cap, and other key metrics.
+CryptoChecker is a Node.js web application that displays the latest market data of cryptocurrencies using the CoinMarketCap (CMC) API (Free plan). The app allows users to select from the top 50 cryptocurrencies and view their price, market cap, and other key metrics.
 
 <img width="3184" height="1643" alt="image" src="https://github.com/user-attachments/assets/fd4d56f4-d476-487b-8541-8ed96ec322f1" />
 <img width="3186" height="1641" alt="image" src="https://github.com/user-attachments/assets/28e858ad-fa57-4460-8f1e-12e77015c243" />
