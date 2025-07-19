@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Counter</title>
+    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gudea:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="crypto-form">
+            <form action="/data" method="GET">
+                <label class="main-text" for="symbols">Select a Cryptocurrency:</label>
+                <select name="id" id="symbols" size="3">
+                    <%if(content && content.data){%>
+                        <% content.data.forEach(symbols => {%>
+                            <option value= "<%= symbols.id%>"><%= symbols.symbol%></option>
+                            
+                        <%}); %>
+                    <%}%>
+                </select>
+                <button type="submit">View Details</button>
+            </form>
+        </div>
+
+        <div class="information">
+            <%if(!result){%>
+                <p>Please select a cryptocurrency to view the latest market data.</p>
+                <p class="credit-info">Data for the top 50 active cryptocurrencies is sourced from the <span style="text-decoration: underline;">CoinMarketCap API.</span></p>
+            <%}else{%>
+                <h3>Basic Information:</h3>
+                <table class="basic-data">
+                    <tr>
+                        <th>Name</th>
+                        <th>Symbol</th>
+                        <th>CMC Rank</th>
+                    </tr>
+                    <tr>
+                        <td><%= result.name %></td>
+                        <td><%= result.symbol %></td>
+                        <td><%= result.cmc_rank %></td>
+                    </tr>
+                </table>
+                <h3>Price & Market Data:</h3>
+                <table class="market-data">
+                    <tr>
+                        <th>Current Price</th>
+                        <th>24h Change</th>
+                        <th>7d Change</th>
+                        <th>Market Cap</th>
+                        <th>24h Volume</th>
+                        <th>Market Dominance</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <%= result.quote.USD.price.toLocaleString('en-US', { style: 'currency' , currency: 'USD' }) %>
+                        </td>
+                        <td>
+                            <%= result.quote.USD.percent_change_24h.toFixed(2) %>%
+                        </td>
+                        <td>
+                            <%= result.quote.USD.percent_change_7d.toFixed(2) %>%
+                        </td>
+                        <td>
+                            <%= result.quote.USD.market_cap.toLocaleString('en-US', { style: 'currency' , currency: 'USD' }) %>
+                        </td>
+                        <td>
+                            <%= result.quote.USD.volume_24h.toLocaleString('en-US', { style: 'currency' , currency: 'USD' }) %>
+                        </td>
+                        <td>
+                            <%= result.quote.USD.market_cap_dominance %>%
+                        </td>
+                    </tr>
+                </table>
+            <%}%>
+        </div>
+    </div>
+</body>
+</html>
