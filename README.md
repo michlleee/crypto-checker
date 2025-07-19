@@ -17,7 +17,6 @@ The app allows users to select from the top 50 cryptocurrencies and view their p
   - Market cap
   - Trading volume
   - Market dominance
-- Responsive design with a clean UI.
 - Environment variables for **API key security** (via `.env`).
 
 ---
